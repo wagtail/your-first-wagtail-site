@@ -10,4 +10,8 @@ class HomePage(Page):
 
     content_panels = Page.content_panels + [
         FieldPanel('body'),
+<<<<<<< HEAD
     ]
+=======
+    ]
+>>>>>>> b1999d3d7ff74dc4b5437d30557a1bc46edeac3c

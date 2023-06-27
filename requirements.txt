@@ -1,2 +1,6 @@
 Django>=4.2,<4.3
+<<<<<<< HEAD
 wagtail>=5.0,<5.1
+=======
+wagtail==5.0.1
+>>>>>>> b1999d3d7ff74dc4b5437d30557a1bc46edeac3c

@@ -1,1 +1,20 @@
+<<<<<<< HEAD
 env/
+=======
+.DS_Store
+*.pyc
+*.log
+*.swp
+*.retry
+.env
+.idea
+.vscode
+*~
+/logs
+/data
+.~*
+common/CACHE
+venv
+.venv
+__pycache__
+>>>>>>> b1999d3d7ff74dc4b5437d30557a1bc46edeac3c

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends "base.html" %}
 {% load static %}
 
@@ -19,3 +20,15 @@ Delete the line below if you're just getting started and want to remove the welc
 {% include 'home/welcome_page.html' %}
 
 {% endblock content %}
+=======
+
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+  {{ page.body|richtext }}
+{% endblock content %}
+
+>>>>>>> b1999d3d7ff74dc4b5437d30557a1bc46edeac3c

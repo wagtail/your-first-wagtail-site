@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> b1999d3d7ff74dc4b5437d30557a1bc46edeac3c
 {% load static wagtailcore_tags wagtailuserbar %}
 
 <!DOCTYPE html>
@@ -18,16 +22,28 @@
         {% endif %}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+<<<<<<< HEAD
         {# Force all links in the live preview panel to be opened in a new tab #}
+=======
+        {% comment %} Force all links in the live preview panel to be opened in a new tab {% endcomment %}
+>>>>>>> b1999d3d7ff74dc4b5437d30557a1bc46edeac3c
         {% if request.in_preview_panel %}
         <base target="_blank">
         {% endif %}
 
+<<<<<<< HEAD
         {# Global stylesheets #}
         <link rel="stylesheet" type="text/css" href="{% static 'css/mysite.css' %}">
 
         {% block extra_css %}
         {# Override this in templates to add extra stylesheets #}
+=======
+        {% comment %} Global stylesheets {% endcomment %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+        {% block extra_css %}
+        {% comment %} Override this in templates to add extra stylesheets {% endcomment %}
+>>>>>>> b1999d3d7ff74dc4b5437d30557a1bc46edeac3c
         {% endblock %}
     </head>
 
@@ -36,6 +52,7 @@
 
         {% block content %}{% endblock %}
 
+<<<<<<< HEAD
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/mysite.js' %}"></script>
 
@@ -44,3 +61,14 @@
         {% endblock %}
     </body>
 </html>
+=======
+        {% comment %} Global javascript {% endcomment %}
+        <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+
+        {% block extra_js %}
+        {% comment %} Override this in templates to add extra javascript {% endcomment %}
+        {% endblock %}
+    </body>
+</html>
+
+>>>>>>> b1999d3d7ff74dc4b5437d30557a1bc46edeac3c

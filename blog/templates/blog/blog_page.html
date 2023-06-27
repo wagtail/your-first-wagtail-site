@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> b1999d3d7ff74dc4b5437d30557a1bc46edeac3c
 {% extends "base.html" %}
 
 {% load wagtailcore_tags wagtailimages_tags %}
@@ -8,6 +12,7 @@
     <h1>{{ page.title }}</h1>
     <p class="meta">{{ page.date }}</p>
 
+<<<<<<< HEAD
     {% with authors=page.authors.all %}
         {% if authors %}
             <h3>Posted in:</h3>
@@ -16,6 +21,16 @@
                     <li style="display: inline">
                         {% image author.author_image fill-80x120 style="vertical-align: middle" %}
                         {{ author.name }}
+=======
+    {% with categories=page.categories.all %}
+        {% if categories %}
+            <h3>Posted in:</h3>
+            <ul>
+                {% for category in categories %}
+                    <li style="display: inline">
+                        {% image category.icon fill-32x32 style="vertical-align: middle" %}
+                        {{ category.name }}
+>>>>>>> b1999d3d7ff74dc4b5437d30557a1bc46edeac3c
                     </li>
                 {% endfor %}
             </ul>
@@ -35,6 +50,7 @@
 
     <p><a href="{{ page.get_parent.url }}">Return to blog</a></p>
 
+<<<<<<< HEAD
     {% with tags=page.tags.all %}
         {% if tags %}
             <div class="tags">
@@ -47,3 +63,15 @@
     {% endwith %}
 
 {% endblock %}
+=======
+    {% if page.tags.all.count %}
+        <div class="tags">
+            <h3>Tags</h3>
+            {% for tag in page.tags.all %}
+                <a href="{% slugurl 'tags' %}?tag={{ tag }}"><button type="button">{{ tag }}</button></a>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}
+
+>>>>>>> b1999d3d7ff74dc4b5437d30557a1bc46edeac3c
