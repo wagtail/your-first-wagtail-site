@@ -13,23 +13,23 @@ from wagtail.snippets.models import register_snippet
 
 
 @register_snippet
-class BlogCategory(models.Model):
+class Author(models.Model):
     name = models.CharField(max_length=255)
-    icon = models.ForeignKey(
+    author_image = models.ForeignKey(
         'wagtailimages.Image', null=True, blank=True,
         on_delete=models.SET_NULL, related_name='+'
     )
 
     panels = [
         FieldPanel('name'),
-        FieldPanel('icon'),
+        FieldPanel('author_image'),
     ]
 
     def __str__(self):
         return self.name
 
     class Meta:
-        verbose_name_plural = 'blog categories'
+        verbose_name_plural = 'Authors'
 
 
 class BlogIndexPage(Page):
@@ -59,8 +59,8 @@ class BlogPage(Page):
     date = models.DateField("Post date")
     intro = models.CharField(max_length=250)
     body = RichTextField(blank=True)
+    authors = ParentalManyToManyField('blog.Author', blank=True)
     tags = ClusterTaggableManager(through=BlogPageTag, blank=True)
-    categories = ParentalManyToManyField('blog.BlogCategory', blank=True)
 
     def main_image(self):
         gallery_item = self.gallery_images.first()
@@ -77,8 +77,8 @@ class BlogPage(Page):
     content_panels = Page.content_panels + [
         MultiFieldPanel([
             FieldPanel('date'),
+            FieldPanel('authors', widget=forms.CheckboxSelectMultiple),
             FieldPanel('tags'),
-            FieldPanel('categories', widget=forms.CheckboxSelectMultiple),
         ], heading="Blog information"),
         FieldPanel('intro'),
         FieldPanel('body'),
@@ -97,6 +97,7 @@ class BlogPageGalleryImage(Orderable):
         FieldPanel('image'),
         FieldPanel('caption'),
     ]
+
 
 class BlogTagIndexPage(Page):
 
